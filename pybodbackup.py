@@ -2,6 +2,7 @@
 
 import sys
 import urllib2
+import os.path
 from xml.etree import ElementTree as etree
 # ElementTree Documentation: https://docs.python.org/2/library/xml.etree.elementtree.html
 
@@ -23,7 +24,6 @@ items = podcast_root.findall('channel/item')
 # save to total download size
 total_download_size = 0
 
-# podcast_feed = []
 for entry in items:
     # within each item, find the enclosure tag
     enclosures = entry.findall('enclosure')
@@ -40,6 +40,11 @@ for entry in items:
     
     # create the file name string
     file_name = url.split('/')[-1]
+    
+    # check if we already have a file with that name and continue if so
+    if os.path.isfile(file_name): 
+        print "Episode already downloaded: " + file_name
+        continue
     
     # download the file
     episode_file = urllib2.urlopen(url)
@@ -68,4 +73,4 @@ for entry in items:
 
     local_file.close()
 
-print "All done, total size: %10dB" % (total_download_size)
+print "All done, total size in Bytes: %10d" % (total_download_size)
