@@ -1,0 +1,5 @@
+http://www.bitsundso.de/feed/
+http://techdistortion.com/podcasts/pragmatic/feed
+http://techdistortion.com/podcasts/tangential/feed
+http://atp.fm/episodes?format=rss
+http://feedpress.me/weeklybriefly
