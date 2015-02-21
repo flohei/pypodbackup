@@ -8,11 +8,18 @@ from xml.etree import ElementTree as etree
 
 # get the url from the parameter
 # podcast_url = 'http://techdistortion.com/podcasts/pragmatic/feed'
-podcast_url = str(sys.argv[1])
+
+
+# check if the podcast_url exists
+if len(sys.argv) > 1:
+    podcast_url = str(sys.argv[1])
+else:
+    print "No feed url specified."
+    sys.exit()        
 
 # podcast parse
 podcast_file = urllib2.urlopen(podcast_url)
-# convert to string
+# read to string
 podcast_data = podcast_file.read()
 # close file because we dont need it anymore:
 podcast_file.close()
