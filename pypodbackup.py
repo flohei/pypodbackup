@@ -37,7 +37,7 @@ for podcast_url in podcast_urls:
     podcast_file = urllib2.urlopen(podcast_url)
     # read to string
     podcast_data = podcast_file.read()
-    # close file because we dont need it anymore:
+    # close file because we dont need it anymore
     podcast_file.close()
 
     # entire feed
